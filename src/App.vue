@@ -1,15 +1,18 @@
 <template>
   <div id="app" class="app">
     <site-header />
+    <site-main />
   </div>
 </template>
 
 <script>
 
 import SiteHeader from "@/components/site-header";
+import SiteMain from "@/components/site-main";
 export default {
   name: 'App',
   components: {
+    SiteMain,
     SiteHeader,
   }
 }
