@@ -117,10 +117,7 @@ export default {
   border: 1px solid variables.$painting-border-color;
   display: flex;
   flex-direction: column;
-
-  & + & {
-    margin-left: 32px;
-  }
+  margin-top: variables.$painting-margin-top;
 
   &__image {
     border-bottom: 1px solid variables.$painting-border-color;

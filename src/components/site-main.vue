@@ -40,6 +40,9 @@ export default {
   }
   &__paintings {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -(variables.$painting-margin-top);
   }
 }
 </style>
