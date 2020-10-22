@@ -45,6 +45,7 @@ export default {
 
 <style lang="scss">
 @use "../assets/variables";
+@use "../assets/mixins";
 
 .painting-for-sale {
   width: variables.$painting-card-width;
@@ -70,7 +71,7 @@ export default {
   }
 
   &__info-title, &__info-author {
-    @include variables.h2;
+    @include mixins.h2;
   }
 
   &__price-container {
@@ -82,21 +83,21 @@ export default {
   }
 
   &__price-old {
-    @include variables.h6;
+    @include mixins.h6;
     text-decoration: line-through;
     color: variables.$painting-old-price-text-color;
   }
 
   &__info-bottom {
     display: flex;
-    @include variables.h3;
+    @include mixins.h3;
     &_sold {
       padding-bottom: 12px;
     }
   }
 
   &__buy-button {
-    @include variables.button;
+    @include mixins.button;
   }
 
   &_sold {

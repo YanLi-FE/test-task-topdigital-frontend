@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss">
 @use "../assets/variables";
+@use "../assets/mixins";
 
 .main-section {
   min-height: calc(100vh - #{variables.$header-height} - #{variables.$footer-height});
@@ -34,7 +35,7 @@ export default {
   }
 
   &__heading {
-    @include variables.h1;
+    @include mixins.h1;
     padding: 45px 0 39px 0;
   }
   &__paintings {

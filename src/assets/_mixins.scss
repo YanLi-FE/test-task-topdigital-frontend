@@ -1,0 +1,62 @@
+@use "variables";
+@mixin h1 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+@mixin h2 {
+  font-size: 18px;
+  font-weight: normal;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+@mixin h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+@mixin h4 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+@mixin h5 {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+@mixin h6 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: variables.$h16-line-interval;
+  text-align: left;
+}
+
+@mixin button {
+  min-width: 112px;
+  height: 48px;
+  background-color: variables.$button-bg-color;
+  border: none;
+  font-family: "#{variables.$font-family}", variables.$font-family-fallback;
+  font-size: 14px;
+  font-weight: bold;
+  color: variables.$button-text-color;
+  padding: 0 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: variables.$button-bg-color-hover;
+  }
+
+  &:disabled {
+    background-color: variables.$button-bg-color-disabled;
+  }
+
+  &_in-cart {
+    background-color: variables.$button-bg-color-cart;
+  }
+}

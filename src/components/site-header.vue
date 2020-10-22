@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss">
 @use "../assets/variables";
+@use "../assets/mixins";
 
 .header {
   height: variables.$header-height;
@@ -73,7 +74,7 @@ export default {
     }
   }
   &__search-button {
-    @include variables.button
+    @include mixins.button
   }
 }
 </style>
