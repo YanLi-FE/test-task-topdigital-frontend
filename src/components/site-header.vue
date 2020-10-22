@@ -74,7 +74,8 @@ export default {
     }
   }
   &__search-button {
-    @include mixins.button
+    @include mixins.button;
+    min-width: 122px;
   }
 }
 </style>
