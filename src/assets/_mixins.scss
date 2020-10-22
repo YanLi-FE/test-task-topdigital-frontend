@@ -56,7 +56,8 @@
     background-color: variables.$button-bg-color-disabled;
   }
 
-  &_in-cart {
+  &_in-cart, &_in-cart:hover, &_in-cart:disabled {
+    cursor: default;
     background-color: variables.$button-bg-color-cart;
   }
 }
