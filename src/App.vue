@@ -2,6 +2,7 @@
   <div id="app" class="app">
     <site-header />
     <site-main />
+    <site-footer />
   </div>
 </template>
 
@@ -9,9 +10,11 @@
 
 import SiteHeader from "@/components/site-header";
 import SiteMain from "@/components/site-main";
+import SiteFooter from "@/components/site-footer";
 export default {
   name: 'App',
   components: {
+    SiteFooter,
     SiteMain,
     SiteHeader,
   }
