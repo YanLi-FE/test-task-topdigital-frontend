@@ -4,25 +4,29 @@
     "title": "Рождение Венеры",
     "price": 1000000,
     "oldPrice": 2000000,
-    "author": "Сандро Боттичелли"
+    "author": "Сандро Боттичелли",
+    "id": 1
   },
   {
     "image": "/images/painting-2.png",
     "title": "Тайная вечеря",
     "price": 3000000,
-    "author": "Леонардо да Винчи"
+    "author": "Леонардо да Винчи",
+    "id": 2
   },
   {
     "image": "/images/painting-3.png",
     "title": "Сотворение Адама",
     "price": 5000000,
     "oldPrice": 6000000,
-    "author": "Микеланджело"
+    "author": "Микеланджело",
+    "id": 3
   },
   {
     "image": "/images/painting-4.png",
     "title": "Урок анатомии",
     "sold": true,
-    "author": "Рембрандт"
+    "author": "Рембрандт",
+    "id": 4
   }
 ]
