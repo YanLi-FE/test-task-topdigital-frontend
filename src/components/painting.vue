@@ -14,7 +14,7 @@
         <button type="button" class="painting-for-sale__buy-button" :class="isInCartButtonClass" @click="buy"
                 :disabled="isLoading">
           <template v-if="isLoading">
-            <loader size="36" stroke-width="3"/>
+            <loader size="6px" />
           </template>
           <template v-else-if="isInCart">
             <svg width="20" height="20" fill="none" viewBox="0 0 20 20" class="painting-for-sale__in-cart-checkmark">
