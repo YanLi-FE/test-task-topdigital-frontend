@@ -1,6 +1,6 @@
 <template>
   <div class="painting-for-sale" :class="cardSoldClass">
-    <img class="painting-for-sale__image" :src="painting.image">
+    <img class="painting-for-sale__image" :src="painting.image" :alt="paintingAltText">
     <div class="painting-for-sale__info-container">
       <div class="painting-for-sale__info-top">
         <h2 class="painting-for-sale__info-title">&laquo;{{ painting.title }}&raquo;</h2>
@@ -30,6 +30,9 @@ export default {
   name: "painting",
   props: ['painting'],
   computed: {
+    paintingAltText() {
+      return `Картина "${this.painting.title}" автора ${this.painting.author}`;
+    },
     cardSoldClass() {
       return this.painting.sold ? 'painting-for-sale_sold' : '';
     },
