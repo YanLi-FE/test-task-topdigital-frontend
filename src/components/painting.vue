@@ -1,5 +1,5 @@
 <template>
-  <div class="painting-for-sale" :class="cardSoldClass">
+  <div class="painting-for-sale" :class="cardClass">
     <img class="painting-for-sale__image" :src="painting.image" :alt="paintingAltText">
     <div class="painting-for-sale__info-container">
       <div class="painting-for-sale__info-top">
@@ -54,8 +54,13 @@ export default {
     paintingAltText() {
       return `Картина "${this.painting.title}" автора ${this.painting.author}`;
     },
-    cardSoldClass() {
-      return this.painting.sold ? 'painting-for-sale_sold' : '';
+    cardClass() {
+      const classes = [];
+      if(this.painting.sold)
+        classes.push('painting-for-sale_sold');
+      if(this.painting.invisible)
+        classes.push('painting-for-sale_invisible');
+      return classes;
     },
     formattedPrice() {
       return numberFormatter.format(this.painting.price);
@@ -117,7 +122,15 @@ export default {
   border: 1px solid variables.$painting-border-color;
   display: flex;
   flex-direction: column;
-  margin-top: variables.$painting-margin-top;
+  margin-top: variables.$painting-margin;
+
+  &_sold {
+    opacity: 0.5;
+  }
+
+  &_invisible {
+    visibility: hidden;
+  }
 
   &__image {
     border-bottom: 1px solid variables.$painting-border-color;
@@ -167,10 +180,6 @@ export default {
 
   &__in-cart-checkmark {
     margin-right: 7px;
-  }
-
-  &_sold {
-    opacity: 0.5;
   }
 }
 </style>
