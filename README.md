@@ -1,5 +1,5 @@
-# test-task-redsoft
-
+# test-task-redsoft-frontend
+Это выполненное тестовое задание компании Redsoft.
 ## Project setup
 ```
 npm install
@@ -14,6 +14,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
