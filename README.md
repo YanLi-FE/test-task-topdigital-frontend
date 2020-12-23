@@ -1,5 +1,4 @@
-# test-task-redsoft-frontend
-Это выполненное тестовое задание компании Redsoft.
+# test-task-topdigital-frontend
 ## Project setup
 ```
 npm install

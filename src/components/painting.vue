@@ -34,17 +34,12 @@
 
 <script>
 import Loader from "@/components/loader";
-
-const axios = require('axios');
+import { mapState } from 'vuex';
 
 const numberFormatter = new Intl.NumberFormat('ru-RU', {
   useGrouping: true,
   maximumFractionDigits: 0,
 });
-
-function parseCart() {
-  return localStorage.cart ? JSON.parse(localStorage.cart) : [];
-}
 
 export default {
   name: "painting",
@@ -58,8 +53,6 @@ export default {
       const classes = [];
       if(this.painting.sold)
         classes.push('painting-for-sale_sold');
-      if(this.painting.invisible)
-        classes.push('painting-for-sale_invisible');
       return classes;
     },
     formattedPrice() {
@@ -71,6 +64,7 @@ export default {
     isInCartButtonClass() {
       return this.isInCart ? 'painting-for-sale__buy-button_in-cart' : '';
     },
+    ...mapState(['cart']),
   },
   data() {
     return {
@@ -79,33 +73,21 @@ export default {
     };
   },
   methods: {
-    saveCart() {
-      const cart = parseCart();
-      cart.push(this.painting.id);
-      localStorage.cart = JSON.stringify(cart);
-    },
-    buy() {
+    async buy() {
+      if (this.isInCart)
+        return;
       this.isLoading = true;
-      axios.get(`https://jsonplaceholder.typicode.com/posts/1`, {
-        // Forces a new request every time instead of using cache
-        headers: {
-          'Cache-Control': 'no-store',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
-      })
-          .then(() => {
-            this.saveCart();
-            this.isInCart = true;
-          })
-          .catch(() => {
-          })
-          .then(() => this.isLoading = false)
+      try {
+        await this.$store.dispatch('BUY_PAINTING', this.painting.id);
+        this.isInCart = true;
+      } catch (e) {
+
+      }
+      this.isLoading = false;
     },
   },
   created() {
-    const cart = parseCart();
-    if (cart.includes(this.painting.id)) {
+    if (this.cart.includes(this.painting.id)) {
       this.isInCart = true;
     }
   },

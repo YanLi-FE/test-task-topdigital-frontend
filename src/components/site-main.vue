@@ -2,8 +2,11 @@
   <main class="main-section">
     <div class="main-section__width-container">
       <h1 class="main-section__heading">Картины эпохи Возрождения</h1>
-      <div class="main-section__paintings">
-        <painting v-for="(elem, i) in data" :painting="elem" :key="elem.title + elem.author + i"/>
+      <div class="main-section__paintings" v-if="!isLoading">
+        <painting v-for="(elem, i) in paintings" :painting="elem" :key="elem.title + elem.author + i"/>
+      </div>
+      <div class="main-section__loading" v-else>
+        Загрузка...
       </div>
     </div>
   </main>
@@ -11,27 +14,19 @@
 
 <script>
 import Painting from "@/components/painting";
-const data = require('@/assets/data.json');
-
-// because IE doesn't work well with grid
-// this adds invisible data entries to fill the last row
-while(data.length % 4 !== 0) {
-  const copy = {};
-  for(const key in data[0]) {
-    copy[key] = data[0][key];
-  }
-  copy.invisible = true;
-  data.push(copy);
-}
-// /IE
+import {mapState} from 'vuex';
 
 export default {
   name: "site-main",
   components: {Painting},
-  data() {
-    return {
-      data,
-    };
+  computed: mapState(['paintings']),
+  data: () => ({
+    isLoading: false,
+  }),
+  async created() {
+    this.isLoading = true;
+    await this.$store.dispatch('GET_PAINTINGS');
+    this.isLoading = false;
   },
 }
 </script>
